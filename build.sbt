@@ -15,7 +15,7 @@ ThisBuild / version := "0.1.0-SNAPSHOT"
 lazy val root = (project in file(".")).settings(
   name := "scala-template",
   libraryDependencies ++= Seq(
-    "org.scalatest" %% "scalatest" % "3.2.14"
+    "org.scalatest" %% "scalatest" % "3.2.15" % Test
   )
 )
 
