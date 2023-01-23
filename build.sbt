@@ -48,7 +48,7 @@ lazy val publishSettings = Seq(
 lazy val root = (project in file(".")).settings(
   name := "scala-template",
   libraryDependencies ++= Seq(
-    "org.scalatest" %% "scalatest" % "3.2.14"
+    "org.scalatest" %% "scalatest" % "3.2.14" % Test
   ),
   publish / skip := true
 )
