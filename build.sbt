@@ -2,10 +2,12 @@
 
 inThisBuild(
   List(
-    scalaVersion := "2.13.10",
+    scalaVersion := "3.3.0",
     scalacOptions ++= List(
-      "-Ywarn-unused",
-      "-Yrangepos"
+      "-feature",
+      "-deprecation",
+      "-unchecked",
+      "-language:postfixOps"
     ),
     semanticdbEnabled := true,
     semanticdbVersion := scalafixSemanticdb.revision,
@@ -47,9 +49,7 @@ lazy val publishSettings = Seq(
 
 lazy val root = (project in file(".")).settings(
   name := "scala-template",
-  libraryDependencies ++= Seq(
-    "org.scalatest" %% "scalatest" % "3.2.14" % Test
-  ),
+  libraryDependencies ++= Dependencies.deps,
   publish / skip := true
 )
 //  .aggregate(subProject)
