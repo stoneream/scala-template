@@ -1,22 +1,7 @@
-// === scala settings ===
-
-inThisBuild(
-  List(
-    scalaVersion := "3.3.0",
-    scalacOptions ++= List(
-      "-feature",
-      "-deprecation",
-      "-unchecked",
-      "-language:postfixOps"
-    ),
-    scalafmtOnCompile := true
-  )
-)
-
 // === project info ===
 
 inThisBuild(
-  List(
+  Seq(
     organization := "io.github.stoneream",
     homepage := Some(url("https://PROJECT-URL-HERE")),
     licenses := List("LICENSE NAME HERE" -> url("https://LICENSE-URL-HERE")),
@@ -31,27 +16,35 @@ inThisBuild(
   )
 )
 
-// === publish settings ===
+// === scala settings ===
 
-sonatypeCredentialHost := "s01.oss.sonatype.org"
-sonatypeRepository := "https://s01.oss.sonatype.org/service/local"
-
-lazy val publishSettings = Seq(
-  publish / skip := false,
-  Test / publishArtifact := false,
-  versionScheme := Some("early-semver")
+inThisBuild(
+  Seq(
+    scalaVersion := "3.3.0",
+    scalacOptions ++= List(
+      "-feature",
+      "-deprecation",
+      "-unchecked",
+      "-language:postfixOps"
+    ),
+    scalafmtOnCompile := true
+  )
 )
 
 // === project setting ===
 
-lazy val root = (project in file(".")).settings(
-  name := "scala-template",
-  libraryDependencies ++= Dependencies.deps,
-  publish / skip := true
-)
-//  .aggregate(subProject)
+lazy val root = (project in file("."))
+  .settings(
+    name := "scala-template",
+    libraryDependencies ++= Dependencies.deps,
+    publish / skip := true
+  )
 
-//lazy val subProject = (project in file("subProject")).settings(
-//  name := "subProject",
-//  publishSettings
-//)
+/* example
+lazy val core = (project in file("core"))
+  .settings(name := "core")
+
+lazy val example = (project in file("example"))
+  .settings(name := "example")
+  .dependsOn(core)
+ */

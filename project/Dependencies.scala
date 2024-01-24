@@ -8,7 +8,6 @@ object Dependencies {
     val scalatest = "3.2.15"
   }
 
-  
   lazy val deps: Seq[ModuleID] = Seq(
     logback,
     typesafeConfig,
@@ -25,8 +24,8 @@ object Dependencies {
     "com.typesafe" % "config" % Versions.typesafeConfig
   )
 
+  // testing
   lazy val scalatest: Seq[ModuleID] = Seq(
     "org.scalatest" %% "scalatest" % Versions.scalatest % Test
   )
-
 }
