@@ -20,14 +20,13 @@ inThisBuild(
 
 inThisBuild(
   Seq(
-    scalaVersion := "3.3.0",
-    scalacOptions ++= List(
-      "-feature",
-      "-deprecation",
-      "-unchecked",
-      "-language:postfixOps"
+    scalaVersion := "3.4.2",
+    scalafmtOnCompile := true,
+    scalacOptions ++= Seq(
+      "-Yretain-trees",
+      "-Wunused:all"
     ),
-    scalafmtOnCompile := true
+    semanticdbEnabled := true
   )
 )
 
@@ -36,7 +35,6 @@ inThisBuild(
 lazy val root = (project in file("."))
   .settings(
     name := "scala-template",
-    libraryDependencies ++= Dependencies.deps,
     publish / skip := true
   )
 
